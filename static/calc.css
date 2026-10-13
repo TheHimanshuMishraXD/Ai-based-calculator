@@ -29,3 +29,8 @@ body{
     box-sizing: border-box;
     margin-bottom: 15px;
 }
+.ai-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}

@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name = "viewport" content="width=device-width,initial-scale=1.0">
-    <title> Vikings calculator </title>
-    <link rel = "stylesheet" href="{{url_for('static' , filename='calc.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikings Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='calc.css') }}">
 </head>
 <body>
+
     <h1>vikings calculator</h1>
-<!-- ai calculator made by himanshu by text -->
-<div class = "calculator"
-    <input type = "text" id = "display" placeholder="0" readonly>
 
+    <!-- Main Calculator Container -->
+    <div class="calculator">
+        <!-- Result Display Screen -->
+        <input type="text" id="display" placeholder="0" readonly>
 
-<!-- here we use ai box container fir the ai -->
-       <div class = "ai-box">
-       <input type= "text" id = "ai-prompt" placeholder = "eg you want to give just like what is the simple intrest ??">
-       <button> id= "ai button > ✨ Ask AI" </button>
-       </div>
+        <!-- AI Input Box -->
+        <div class="ai-box">
+            <input type="text" id="ai-prompt" placeholder="eg. what is simple interest?">
+            <button id="ai-btn">✨ Ask AI</button>
+        </div>
 
+        <!-- 4x4 Buttons Grid -->
+        <div class="buttons">
+            <button class="btn clear">C</button>
+            <button class="btn operator">/</button>
+            <button class="btn operator">*</button>
+            <button class="btn operator">-</button>
 
-       <div class = "buttons">
-        <button class = "btn">7</button>
-        <button class = "btn clear">c</button>
-        <button class = " btn opertaor">/</button>
-        <button class="btn operator">*</button>
-        <button class="btn operator">-</button>
-        <button class = "btn">7</button>
-        <button class = "btn">8</button>
-        <button class = "btn">9</button>
-        <button class = "btn">4</button>
-</div>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn operator">+</button>
+
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn equal">=</button>
+
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">0</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Connection -->
+    <script src="{{ url_for('static', filename='calc.js') }}"></script>
 </body>
-</html>      
+</html>

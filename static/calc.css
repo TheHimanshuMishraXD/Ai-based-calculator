@@ -36,3 +36,9 @@ body {
     gap: 8px;
     margin-bottom: 20px;
 }
+.btn {
+    height: 50px;
+    background-color: #3b3b52;
+    color: #ffffff
+    
+}

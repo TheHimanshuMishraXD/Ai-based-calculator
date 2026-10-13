@@ -70,4 +70,11 @@ body {
     background-color: #ef4444;
 }
 
-/*  */
+/* this is for the equal operator */
+
+.equal {
+    background-color: #16a34a;
+}
+.equal:hover {
+    background-color: #22c55e;
+}

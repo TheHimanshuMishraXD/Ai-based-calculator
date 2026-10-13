@@ -36,9 +36,20 @@ body {
     gap: 8px;
     margin-bottom: 20px;
 }
+/* Common Button Styling */
 .btn {
     height: 50px;
     background-color: #3b3b52;
-    color: #ffffff
-    
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background-color: #4a4a66;
 }

@@ -53,3 +53,21 @@ body {
 .btn:hover {
     background-color: #4a4a66;
 }
+
+.operator {
+    background-color: #4338ca;
+
+}
+.operator:hover {
+    background-color: #4f46e9;
+}
+
+/* this is for clear button */
+.clear {
+    background-color: #4f46e5;
+}
+.clear:hover {
+    background-color: #ef4444;
+}
+
+/*  */

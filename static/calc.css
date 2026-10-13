@@ -8,3 +8,10 @@ body{
     min-height: 100vh;
     margin: 0;
 }
+
+.calculator {
+    background-color: #2b2b3d;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0,0.4);
+}

@@ -17,5 +17,14 @@ body{
     width: 340px;
 }
 #display {
+    width: 100%;
+    height: 60px;
+    background-color: #181825;
+    border: none;
+    border-radius: 10px;
+    font-size: 28px;
+    text-align: right;
+    padding: 10px 15px;
+    box-sizing: border-box;
     
 }

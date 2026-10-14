@@ -1,1 +1,1 @@
-const display = document.
+const display = document.getElementById('display');

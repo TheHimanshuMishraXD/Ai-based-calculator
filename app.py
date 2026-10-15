@@ -10,7 +10,7 @@ def ask_ai():
 #       from this line ye frontend data ko read krega
         user_prompt = data.get("prompt" , " ")
 
-        if not user_prompt:
+        if not user_prompt: 
              return jsonify({"result": " Empty prompt"})
         result = eval(user_prompt)
         return jsonify({"result": str(result)})       

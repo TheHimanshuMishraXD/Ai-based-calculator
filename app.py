@@ -28,12 +28,12 @@ def ask_ai():
                 'system instruction': (
                     "You Are an ai calculator backend. Give  a short , ultra-concise,"
                     "dirct response suitable for a calculator display screen."
-                    "if it is a math problem, show the formula or step briefly and the final numerical answer."
+                    "if it is a math problem, show the formula or step briefly and the final numerical answer.")
             }
             
         )
-        result = eval(user_prompt)
-        return jsonify({"result": str(result)})
+        
+        return jsonify({"result": response.text.strip()})
 
     except Exception:
         return jsonify({"result": "Invalid Expression"})

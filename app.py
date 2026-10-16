@@ -22,6 +22,11 @@ def ask_ai():
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
         response = client.models.generate_content(
+            model = 'gemini-2.5-flash' ,
+            contents=user_prompt,
+            config={
+                
+            }
             
         )
         result = eval(user_prompt)

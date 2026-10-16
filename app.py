@@ -17,6 +17,6 @@ def ask_ai():
 
 if __name__ == "__main__":
     app.run(debug=True)  
-
+           
 
 # jsonify → Python ke result ko wapas JSON format mein JavaScript ke paas bhejne ke liye.

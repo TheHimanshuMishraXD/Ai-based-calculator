@@ -1,7 +1,9 @@
 import os
 from flask import Flask, render_template, request, jsonify
-import 
+from google import genai        
 app = Flask(__name__)
+
+GEMINI_API_KEY
 
 @app.route("/")
 def home():

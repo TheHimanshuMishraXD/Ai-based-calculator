@@ -25,7 +25,10 @@ def ask_ai():
             model = 'gemini-2.5-flash' ,
             contents=user_prompt,
             config={
-                
+                'system instruction': (
+                    "You Are an ai calculator backend. Give  a short , ultra-concise,"
+                    "dirct response suitable for a calculator display screen."
+                    "if it is a math problem, show the formula or step briefly and the final numerical answer."
             }
             
         )

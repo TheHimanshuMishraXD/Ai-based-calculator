@@ -7,7 +7,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("warning GEMINI_API_KEY IS MISSING MAKE SURE TO IMPORT IT IN TERMINAL.")
 
-client =genai.Client
+client =genai.Client(api_key=GEMINI_API_KEY)
 
 @app.route("/")
 def home():

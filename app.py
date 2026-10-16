@@ -4,7 +4,8 @@ from google import genai
 app = Flask(__name__)
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
+if not GEMINI_API_KEY:
+    print("warning GEMINI_API_KEY IS MISSING MAKE SURE TO IMPORT IT IN TERMINAL.")
 
 @app.route("/")
 def home():

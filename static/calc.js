@@ -1,21 +1,24 @@
+// 1. HTML Elements select karna (Fixed IDs and Selectors)
 const display = document.getElementById('display');
-const buttons = document.querySelectorAll('.buttons buttons');
-const aiprompt = document.getElementById('ai-prompt');
-const aiBtn = document.getElementById('ai-Btn');
+const buttons = document.querySelectorAll('.buttons button');
+const aiPrompt = document.getElementById('ai-prompt');
+const aiBtn = document.getElementById('ai-btn');
+
+// 2. Buttons click event handling
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        const value = button.innerText;
+        const value = button.innerText.trim();
 
         if (value === 'C') {
-            display.value = ''; // Display clear karne ke liye
+            display.value = ''; // Display screen clear karna
         } else if (value === '=') {
             try {
-                display.value = eval(display.value); // Math calculation
+                display.value = eval(display.value); // Equation calculate karna
             } catch (error) {
                 display.value = 'Error';
             }
         } else {
-            display.value += value; // Numbers/operators screen par jodna
+            display.value += value; // Numbers screen par append karna
         }
     });
 });

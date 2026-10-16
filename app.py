@@ -35,8 +35,8 @@ def ask_ai():
         
         return jsonify({"result": response.text.strip()})
 
-    except Exception:
-        return jsonify({"result": "Invalid Expression"})
+    except Exception as e:
+        return jsonify({"result": f"Ai Error: {str(e)}"})
 
 if __name__ == "__main__":
     app.run(debug=True)

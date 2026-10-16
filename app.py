@@ -7,6 +7,8 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     print("warning GEMINI_API_KEY IS MISSING MAKE SURE TO IMPORT IT IN TERMINAL.")
 
+client
+
 @app.route("/")
 def home():
     return render_template("calc.html")
@@ -19,7 +21,9 @@ def ask_ai():
 
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
-
+        response = client.models.generate_content(
+            
+        )
         result = eval(user_prompt)
         return jsonify({"result": str(result)})
 

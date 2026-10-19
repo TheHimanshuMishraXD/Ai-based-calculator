@@ -26,6 +26,14 @@ h1 {
     letter-spacing: 0.5px;
 }
 
+.calculator-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .calculator {
     background: rgba(43, 43, 61, 0.7);
     backdrop-filter: blur(16px);
@@ -155,29 +163,6 @@ h1 {
     box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
 }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.social-links a {
-    color: #94a3b8;
-    font-size: 1.25rem;
-    transition: all 0.25s ease;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    color: #38bdf8;
-    transform: translateY(-3px);
-}
-
-/* How to Use Section */
 .how-to-use {
     margin-top: 20px;
     padding-top: 15px;
@@ -216,4 +201,123 @@ h1 {
     padding: 2px 5px;
     border-radius: 4px;
     color: #38bdf8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-links a {
+    color: #94a3b8;
+    font-size: 1.25rem;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #38bdf8;
+    transform: translateY(-3px);
+}
+
+/* History Panel Styling */
+.history-panel {
+    background: rgba(43, 43, 61, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    width: 260px;
+    max-height: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-header h3 {
+    font-size: 1rem;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#clear-history-btn {
+    background: transparent;
+    border: none;
+    color: #fca5a5;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+#clear-history-btn:hover {
+    color: #ef4444;
+}
+
+#history-list {
+    list-style: none;
+    overflow-y: auto;
+    max-height: 440px;
+    padding-right: 5px;
+}
+
+#history-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#history-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.history-item {
+    background: rgba(24, 24, 37, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background: rgba(24, 24, 37, 0.9);
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateX(2px);
+}
+
+.history-expression {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 3px;
+    word-break: break-all;
+}
+
+.history-result {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #38bdf8;
+}
+
+.empty-history {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 20px;
 }

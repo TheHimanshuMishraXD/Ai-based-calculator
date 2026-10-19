@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const aiPromptInput = document.getElementById("ai-prompt");
     const display = document.getElementById("display");
 
-    // Calculator normal buttons logic
+    // Standard Calculator Logic
     const buttons = document.querySelectorAll(".buttons .btn");
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Ask AI Click Event
+    // Ask AI Event Listeners
     if (aiBtn) {
         aiBtn.addEventListener("click", askAI);
     }

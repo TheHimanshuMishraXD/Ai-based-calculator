@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikings Calculator</title>
+    <title>AI Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='calc.css') }}">
 </head>
 <body>
 
-    <h1>Ai-Based calculator</h1>
+    <h1>AI-Powered Calculator</h1>
 
-    <!-- Main Calculator Container -->
     <div class="calculator">
-        <!-- Result Display Screen -->
         <input type="text" id="display" placeholder="0" readonly>
 
-        <!-- AI Input Box -->
         <div class="ai-box">
-            <input type="text" id="ai-prompt" placeholder="eg. what is simple interest?">
+            <input type="text" id="ai-prompt" placeholder="e.g. 15% tip on $80 or simple interest...">
             <button id="ai-btn">✨ Ask AI</button>
         </div>
 
-        <!-- 4x4 Buttons Grid -->
         <div class="buttons">
             <button class="btn clear">C</button>
             <button class="btn operator">/</button>
@@ -45,7 +44,6 @@
         </div>
     </div>
 
-    
     <script src="{{ url_for('static', filename='calc.js') }}"></script>
 </body>
-</html>                           
+</html>

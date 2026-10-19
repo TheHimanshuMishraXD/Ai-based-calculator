@@ -6,15 +6,16 @@ app = Flask(__name__)
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
-    print("Warning: GROQ_API_KEY IS MISSING! Export it in terminal.")
+    print("Warning: GROQ_API_KEY IS MISSING!")
 
 client = Groq(api_key=GROQ_API_KEY)
 
-# Active supported models on Groq platform
-MODELS_TO_TRY = [
-    "llama-3.3-70b-versatile",
-    "llama-3.1-8b-instant",
-    "mixtral-8x7b-32768"
+# Active chat completion models from your account
+ACTIVE_MODELS = [
+    "openai/gpt-oss-20b",
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-120b",
+    "allam-2-7b"
 ]
 
 @app.route("/")
@@ -30,8 +31,8 @@ def ask_ai():
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
 
-        # Try active models in order
-        for model_id in MODELS_TO_TRY:
+        # Try supported LLMs in priority order
+        for model_id in ACTIVE_MODELS:
             try:
                 completion = client.chat.completions.create(
                     model=model_id,
@@ -54,13 +55,12 @@ def ask_ai():
                 response_text = completion.choices[0].message.content.strip()
                 return jsonify({"result": response_text})
             except Exception as err:
-                print(f"Model {model_id} failed: {err}")
+                print(f"[LOG] Model {model_id} failed: {err}")
                 continue
 
-        return jsonify({"result": "All AI models failed"})
+        return jsonify({"result": "No responsive model found"})
 
     except Exception as e:
-        print(f"Server Error: {e}")
         return jsonify({"result": f"Groq Error: {str(e)}"})
 
 if __name__ == "__main__":

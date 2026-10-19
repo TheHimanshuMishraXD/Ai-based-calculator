@@ -1,100 +1,101 @@
-# 🧮 AI-Based Calculator
+# 🧮 AI-Powered Glassmorphism Calculator
 
-A modern, web-based calculator built using Python, Flask, HTML, and CSS. This project aims to provide a simple, user-friendly interface for performing mathematical calculations, with scope for future AI-powered features.
+An ultra-modern, glassmorphic calculator web application powered by **Flask** and **Groq AI**. Features real-time AI problem solving, an interactive history panel, full keyboard shortcut integration, and a terminal-style developer footer.
 
-## 🚀 Features
-
-- 🧮 Mathematical calculations
-- 🌐 Web-based interface powered by Flask
-- 🎨 Custom HTML and CSS user interface
-- ⚡ Lightweight Python backend
-- 🔄 Automatic Git commit and push workflow
-- 🛠️ Easy to extend with additional features
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| Python | Backend logic |
-| Flask | Web framework |
-| HTML5 | Webpage structure |
-| CSS3 | Styling and layout |
-| Git & GitHub | Version control and project hosting |
-
-## 📁 Project Structure
-
-```text
-Ai-based-calculator/
-├── app.py
-├── templates/
-│   └── calc.html
-├── static/
-│   └── calc.css
-└── README.md
-```
-
-## ⚙️ Installation & Setup
-
-### 1. Clone the repository
-
-```bash
-git clone git@github.com:TheHimanshuMishraXD/Ai-based-calculator.git
-```
-
-### 2. Open the project directory
-
-```bash
-cd Ai-based-calculator
-```
-
-### 3. Create a virtual environment (recommended)
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 4. Install Flask
-
-```bash
-pip install flask
-```
-
-### 5. Run the application
-
-```bash
-python3 app.py
-```
-
-Open your browser and visit:
-
-`http://127.0.0.1:5000`
-
-## 🔄 Development Workflow
-
-This project uses an automated Git workflow that monitors selected project files and automatically commits and pushes changes to GitHub when files are saved.
-
-**Workflow:** Edit Code → `Ctrl + S` → Automatic Commit → GitHub Push
-
-## 🎯 Future Improvements
-
-- [ ] AI-powered natural-language calculations
-- [ ] Scientific calculator functions
-- [ ] Calculation history
-- [ ] Improved responsive UI
-- [ ] Input validation and error handling
-- [ ] Unit conversion and advanced mathematics
-
-## 👨‍💻 Developer
-
-**TheHimanshuMishraXD**
-
-GitHub: [@TheHimanshuMishraXD](https://github.com/TheHimanshuMishraXD)
-
-## ⭐ Support
-
-If you find this project interesting, consider giving the repository a star!
+🚀 **Live Demo:** [https://ai-based-calculator-wymb.vercel.app/](https://ai-based-calculator-wymb.vercel.app/)
 
 ---
 
-*Built with Python, Flask, and a passion for learning AI and software development.*
+## ✨ Key Features
+
+- **🤖 Groq AI Assistance:** Ask complex word problems or natural language math questions in the prompt box.
+- **🎨 Glassmorphism UI:** Neon gradient accents, clean typography, and a dark glass aesthetic.
+- **📜 Interactive History Panel:** Keep track of past calculations and click any result to reuse it.
+- **⌨️ Keyboard Shortcuts:** Complete numpad, operator, backspace (`Backspace`), clear (`Esc`), and evaluate (`Enter`) support.
+- **💻 Developer Terminal Footer:** Live pulse status indicator and custom Git-style branding.
+- **📱 Fully Responsive:** Smooth experience across desktop, tablet, and mobile devices.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Python 3.12, Flask, Groq SDK, Gunicorn
+- **Frontend:** HTML5, CSS3 (Glassmorphism), Vanilla JavaScript (ES6+)
+- **Deployment:** Vercel (@vercel/python)
+
+---
+
+## 🚀 Local Setup & Installation
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git](https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git)
+cd Ai-based-calculator
+
+2. Install Dependencies
+Bash
+pip install -r requirements.txt
+
+3. Set Up Your Groq API Key
+Get your free API key from Groq Console.
+
+On Linux / macOS (Terminal):
+Bash
+export GROQ_API_KEY="gsk_your_actual_groq_api_key_here"
+python3 app.py
+
+On Windows (Command Prompt / CMD):
+DOS
+set GROQ_API_KEY=gsk_your_actual_groq_api_key_here"
+python app.py
+
+
+On Windows (PowerShell):
+PowerShell
+$env:GROQ_API_KEY="gsk_your_actual_groq_api_key_here"
+python app.py
+
+Then open http://localhost:5000 in your browser.
+
+Running on Android (Termux)
+If you want to run the server locally on an Android phone:
+Install Termux and run:
+Bash
+pkg update && pkg upgrade -y
+pkg install python git -y
+
+Clone repo and install requirements:
+
+Bash
+git clone [https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git](https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git)
+cd Ai-based-calculator
+pip install -r requirements.txt
+
+Export Key & Run:
+
+Bash
+export GROQ_API_KEY="your_groq_api_key_here"
+python app.py
+
+👨‍💻 Developer & Author
+Designed & Built with ❤️ by Himanshu Mishra
+
+GitHub: @TheHimanshuMishraXD
+
+Live App: AI Calculator on Vercel
+
+---
+
+### Terminal Commands to Update README on GitHub:
+
+Apni VS Code terminal mein yeh commands run kar do:
+
+```bash
+# 1. README.md file
+git add README.md
+
+# 2. Commit 
+git commit -m "Docs: Update README with Vercel live demo, local setup, and mobile guide"
+
+# 3. Push to GitHub
+git push origin main

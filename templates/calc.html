@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons for GitHub, LinkedIn, Email -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- CSS Link -->
@@ -20,59 +20,73 @@
 
     <h1>AI-Powered Calculator</h1>
 
-    <div class="calculator">
-        <!-- Display Screen -->
-        <input type="text" id="display" placeholder="0" readonly>
+    <div class="calculator-container">
+        <!-- Main Calculator Card -->
+        <div class="calculator">
+            <!-- Display Screen -->
+            <input type="text" id="display" placeholder="0" readonly>
 
-        <!-- Ask AI Box -->
-        <div class="ai-box">
-            <input type="text" id="ai-prompt" placeholder="e.g. 15% tip on $80 or simple interest...">
-            <button id="ai-btn">✨ Ask AI</button>
+            <!-- Ask AI Box -->
+            <div class="ai-box">
+                <input type="text" id="ai-prompt" placeholder="e.g. 15% tip on $80 or simple interest...">
+                <button id="ai-btn">✨ Ask AI</button>
+            </div>
+
+            <!-- Calculator Buttons Grid -->
+            <div class="buttons">
+                <button class="btn clear">C</button>
+                <button class="btn operator">/</button>
+                <button class="btn operator">*</button>
+                <button class="btn operator">-</button>
+
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn operator">+</button>
+
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn equal">=</button>
+
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">0</button>
+            </div>
+
+            <!-- How to Use Section -->
+            <div class="how-to-use">
+                <h3><i class="fas fa-lightbulb"></i> How to Use</h3>
+                <ul>
+                    <li><strong>Basic Math:</strong> Use buttons or Numpad keys (+, -, *, /).</li>
+                    <li><strong>AI Queries:</strong> Type normal prompts and press <code>Enter</code>.</li>
+                    <li><strong>Shortcuts:</strong> <code>Esc</code> to Clear, <code>Enter</code> for Equals.</li>
+                </ul>
+            </div>
+
+            <!-- Social Links Footer -->
+            <div class="social-links">
+                <a href="https://github.com/himanshumishra41157-tech" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/himanshu-mishra-904264380" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:himanshumishra75952@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
 
-        <!-- Calculator Buttons Grid -->
-        <div class="buttons">
-            <button class="btn clear">C</button>
-            <button class="btn operator">/</button>
-            <button class="btn operator">*</button>
-            <button class="btn operator">-</button>
-
-            <button class="btn">7</button>
-            <button class="btn">8</button>
-            <button class="btn">9</button>
-            <button class="btn operator">+</button>
-
-            <button class="btn">4</button>
-            <button class="btn">5</button>
-            <button class="btn">6</button>
-            <button class="btn equal">=</button>
-
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">0</button>
-        </div>
-
-        <!-- Social Links Footer -->
-        <div class="social-links">
-            <a href="https://github.com/TheHimanshuMishraXD" target="_blank" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/himanshu-mishra-904264380" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:himanshumishra75952@gmail.com" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
-
-        <!-- How to Use Section -->
-        <div class="how-to-use">
-            <h3><i class="fas fa-lightbulb"></i> How to Use</h3>
-            <ul>
-                <li><strong>Basic Math:</strong> Buttons click karke regular calculations karo (+, -, *, /).</li>
-                <li><strong>AI Queries:</strong> Prompt box mein normal English mein question likho (e.g. <em>"15% of 800"</em> ya <em>"square root of 144"</em>).</li>
-                <li><strong>Get Result:</strong> ✨ Ask AI button click karo ya <code>Enter</code> key press karo.</li>
+        <!-- History Side Panel -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3><i class="fas fa-history"></i> History</h3>
+                <button id="clear-history-btn" title="Clear History"><i class="fas fa-trash-alt"></i></button>
+            </div>
+            <ul id="history-list">
+                <li class="empty-history">No calculations yet</li>
             </ul>
         </div>
     </div>

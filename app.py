@@ -23,9 +23,9 @@ def ask_ai():
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
 
-        # Groq Llama 3.1 API Call
+        # Updated to active Groq model
         completion = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {
                     "role": "system",

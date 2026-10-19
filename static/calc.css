@@ -6,7 +6,7 @@
 }
 
 body {
-    background: radial-gradient(circle at the top left,#1e1e2e , #11111b);
+    background: radial-gradient(circle at top left, #1e1e2e, #11111b);
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -16,23 +16,22 @@ body {
     padding: 20px;
 }
 
-.calculator{
-    background: rgba(43,43,61,0.7);
-    background-filter: blur(16px);
+.calculator {
+    background: rgba(43, 43, 61, 0.7);
+    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255 , 255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 24px;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     width: 360px;
-
 }
 
 #display {
     width: 100%;
     height: 65px;
-    background: rgba(24,24,37,0.85);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(24, 24, 37, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     color: #38bdf8;
     font-size: 26px;
@@ -41,125 +40,107 @@ body {
     padding: 12px 18px;
     margin-bottom: 18px;
     outline: none;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
-
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
 }
+
 .ai-box {
-    display: flex;                 /* Input box aur button ko side-by-side arrange kiya */
-    gap: 10px;                     /* Input aur button ke beech 10px ki gap rakhi */
-    margin-bottom: 20px;           /* Grid buttons se pehle 20px ka gap diya */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 #ai-prompt {
-    flex: 1;                       /* Bachi hui sari space input text box lega */
-    height: 44px;                  /* Input height 44px */
-    background: rgba(24, 24, 37, 0.85); 
-                                   /* Dark input background */
-    border: 1px solid #3b3b52;     /* Subtle grey border */
-    border-radius: 10px;           /* Rounded corners 10px */
-    color: #ffffff;                /* Typed text color white */
-    padding: 0 14px;               /* Inside side padding 14px */
-    font-size: 13px;               /* Font size 13px */
-    outline: none;                 /* Default focus ring hatayi */
-    transition: all 0.25s ease;    /* Focus animations ko smooth (0.25 sec) banaya */
+    flex: 1;
+    height: 44px;
+    background: rgba(24, 24, 37, 0.85);
+    border: 1px solid #3b3b52;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 0 14px;
+    font-size: 13px;
+    outline: none;
+    transition: all 0.25s ease;
 }
 
 #ai-prompt:focus {
-    border-color: #9d4edd;         /* Click karne par border purple glow ban jayegi */
-    box-shadow: 0 0 10px rgba(157, 78, 221, 0.3); 
-                                   /* Purple shadow light glow karegi */
+    border-color: #9d4edd;
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
 }
 
 #ai-btn {
-    height: 44px;                  /* Input line ke barabar 44px height */
-    background: linear-gradient(135deg, #7b2cbf, #9d4edd); 
-                                   /* Deep purple se light purple gradient background */
-    color: #ffffff;                /* Text color white */
-    border: none;                  /* Default border hatayi */
-    border-radius: 10px;           /* Curved edges 10px */
-    padding: 0 16px;               /* Horizontal inner padding */
-    font-weight: 600;              /* Semi-bold text */
-    font-size: 13px;               /* Size 13px */
-    cursor: pointer;               /* Hover karne par hand icon dikhayega */
-    transition: all 0.25s ease;    /* Hover animations timing smooth rakhi */
-    white-space: nowrap;           /* Text button ke andar wrap/break nahi hoga */
+    height: 44px;
+    background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 0 16px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
 }
 
 #ai-btn:hover {
-    transform: translateY(-2px);   /* Mouse le jaane par button 2px upar uthega */
-    box-shadow: 0 6px 16px rgba(157, 78, 221, 0.4); 
-                                   /* Button ke niche purple shadow glow karegi */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(157, 78, 221, 0.4);
 }
 
 #ai-btn:active {
-    transform: translateY(0);      /* Click karte hi wapas normal level par aa jayega */
+    transform: translateY(0);
 }
 
-
 .buttons {
-    display: grid;                 /* Grid layout layout system initialize kiya */
-    grid-template-columns: repeat(4, 1fr); 
-                                   /* Equal width ke 4 columns banaye */
-    gap: 12px;                     /* Buttons ke aapas mein 12px ki spacing rakhi */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
 .btn {
-    height: 54px;                  /* Button height 54px */
-    background: rgba(59, 59, 82, 0.7); 
-                                   /* Semi-transparent grey button color */
-    border: 1px solid rgba(255, 255, 255, 0.05); 
-                                   /* Subtle light border */
-    color: #ffffff;                /* Button text white */
-    border-radius: 12px;           /* Smooth 12px corner radius */
-    font-size: 20px;               /* Numbers/operators size 20px */
-    font-weight: 500;              /* Medium weight text */
-    cursor: pointer;               /* Pointer hand icon on hover */
-    transition: all 0.2s ease;    /* Smooth hover transitions */
+    height: 54px;
+    background: rgba(59, 59, 82, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
-    background: rgba(74, 74, 102, 0.9); 
-                                   /* Hover par button lighter grey ho jayega */
-    transform: translateY(-2px);   /* Button 2px float hoga upar */
+    background: rgba(74, 74, 102, 0.9);
+    transform: translateY(-2px);
 }
 
 .btn:active {
-    transform: translateY(0);      /* Press karne par click feel ke liye down aayega */
+    transform: translateY(0);
 }
 
-/* Operators (+, -, *, /) */
 .operator {
-    background: rgba(67, 56, 202, 0.7); 
-                                   /* Indigo/blue accent background */
-    color: #a5b4fc;                /* Light indigo text color */
+    background: rgba(67, 56, 202, 0.7);
+    color: #a5b4fc;
 }
 
 .operator:hover {
-    background: rgba(79, 70, 233, 0.9); 
-                                   /* Bright blue hover state */
+    background: rgba(79, 70, 233, 0.9);
 }
 
-/* Clear Button (C) */
 .clear {
-    background: rgba(220, 38, 38, 0.7); 
-                                   /* Red background color */
-    color: #fca5a5;                /* Light pinkish red text */
+    background: rgba(220, 38, 38, 0.7);
+    color: #fca5a5;
 }
 
 .clear:hover {
-    background: rgba(239, 68, 68, 0.9); 
-                                   /* Brighter red on hover */
+    background: rgba(239, 68, 68, 0.9);
 }
 
-/* Equal Button (=) */
 .equal {
-    background: linear-gradient(135deg, #16a34a, #22c55e); 
-                                   /* Green gradient background */
-    color: #ffffff;                /* White text */
-    font-weight: 700;              /* Bold font weight */
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .equal:hover {
-    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35); 
-                                   /* Green glowing shadow on hover */
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
 }

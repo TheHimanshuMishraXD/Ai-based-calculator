@@ -66,12 +66,12 @@ pkg install python git -y
 
 Clone repo and install requirements:
 
-Bash
+1.Bash
 git clone [https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git](https://github.com/TheHimanshuMishraXD/Ai-based-calculator.git)
 cd Ai-based-calculator
 pip install -r requirements.txt
 
-Export Key & Run:
+2.Export Key & Run:
 
 Bash
 export GROQ_API_KEY="your_groq_api_key_here"
@@ -88,7 +88,7 @@ Live App: AI Calculator on Vercel
 
 ### Terminal Commands to Update README on GitHub:
 
-Apni VS Code terminal mein yeh commands run kar do:
+run this command on vs code terminal:
 
 ```bash
 # 1. README.md file

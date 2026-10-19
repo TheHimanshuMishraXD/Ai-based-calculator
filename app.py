@@ -4,11 +4,11 @@ from groq import Groq
 
 app = Flask(__name__)
 
-# Key check
+# Fallback Key setup
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "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")
 client = Groq(api_key=GROQ_API_KEY)
 
-# Confirmed active general models from your list
+# Active chat models list on Groq
 ACTIVE_MODELS = [
     "openai/gpt-oss-20b",
     "qwen/qwen3.8-27b",
@@ -24,13 +24,14 @@ def ask_ai():
     try:
         data = request.get_json()
         if not data or "prompt" not in data:
-            return jsonify({"result": "Invalid JSON input"}), 400
-            
+            return jsonify({"result": "Invalid input"}), 400
+
         user_prompt = data.get("prompt", "").strip()
 
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
 
+        # Try active models in sequence
         for model_id in ACTIVE_MODELS:
             try:
                 completion = client.chat.completions.create(
@@ -54,10 +55,10 @@ def ask_ai():
                 print(f"[ERROR] {model_id}: {err}")
                 continue
 
-        return jsonify({"result": "All active models failed"})
+        return jsonify({"result": "All models failed"})
 
     except Exception as e:
-        print(f"[CRITICAL SERVER ERROR]: {e}")
+        print(f"[SERVER ERROR]: {e}")
         return jsonify({"result": f"Server Error: {str(e)}"}), 500
 
 if __name__ == "__main__":

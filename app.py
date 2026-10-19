@@ -6,16 +6,15 @@ app = Flask(__name__)
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
-    print("Warning: GROQ_API_KEY IS MISSING!")
+    print("Warning: GROQ_API_KEY IS MISSING! Export it in terminal.")
 
 client = Groq(api_key=GROQ_API_KEY)
 
-# Active models list order by priority
+# Active supported models on Groq
 MODELS_TO_TRY = [
-    "llama-3.1-8b-instant",
-    "llama3-8b-8192",
-    "llama-3.3-70b-versatile",
-    "openai/gpt-oss-20b"
+    "openai/gpt-oss-20b",
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-120b"
 ]
 
 @app.route("/")
@@ -31,7 +30,7 @@ def ask_ai():
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
 
-        # Fallback mechanism across models
+        # Try active models in order
         for model_id in MODELS_TO_TRY:
             try:
                 completion = client.chat.completions.create(
@@ -55,11 +54,12 @@ def ask_ai():
                 response_text = completion.choices[0].message.content.strip()
                 return jsonify({"result": response_text})
             except Exception as err:
-                if "model_not_found" in str(err) or "404" in str(err):
-                    continue  # agla model try karega
+                # If model is deprecated or unavailable, fallback to next
+                if "400" in str(err) or "404" in str(err) or "decommissioned" in str(err):
+                    continue
                 raise err
 
-        return jsonify({"result": "No working Groq model found"})
+        return jsonify({"result": "No active Groq model found"})
 
     except Exception as e:
         return jsonify({"result": f"Groq Error: {str(e)}"})

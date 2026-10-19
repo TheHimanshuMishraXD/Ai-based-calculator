@@ -10,11 +10,11 @@ if not GROQ_API_KEY:
 
 client = Groq(api_key=GROQ_API_KEY)
 
-# Active supported models on Groq
+# Active supported models on Groq platform
 MODELS_TO_TRY = [
-    "openai/gpt-oss-20b",
-    "qwen/qwen3.8-27b",
-    "openai/gpt-oss-120b"
+    "llama-3.3-70b-versatile",
+    "llama-3.1-8b-instant",
+    "mixtral-8x7b-32768"
 ]
 
 @app.route("/")
@@ -54,14 +54,13 @@ def ask_ai():
                 response_text = completion.choices[0].message.content.strip()
                 return jsonify({"result": response_text})
             except Exception as err:
-                # If model is deprecated or unavailable, fallback to next
-                if "400" in str(err) or "404" in str(err) or "decommissioned" in str(err):
-                    continue
-                raise err
+                print(f"Model {model_id} failed: {err}")
+                continue
 
-        return jsonify({"result": "No active Groq model found"})
+        return jsonify({"result": "All AI models failed"})
 
     except Exception as e:
+        print(f"Server Error: {e}")
         return jsonify({"result": f"Groq Error: {str(e)}"})
 
 if __name__ == "__main__":

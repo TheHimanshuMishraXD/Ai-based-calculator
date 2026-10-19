@@ -176,3 +176,44 @@ h1 {
     color: #38bdf8;
     transform: translateY(-3px);
 }
+
+/* How to Use Section */
+.how-to-use {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+}
+
+.how-to-use h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #a855f7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.how-to-use ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.how-to-use li {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.how-to-use li strong {
+    color: #e2e8f0;
+}
+
+.how-to-use li code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #38bdf8;
+}

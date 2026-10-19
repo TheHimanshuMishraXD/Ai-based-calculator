@@ -321,3 +321,23 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
+
+/* Footer Tagline Styling */
+.footer-tagline {
+    margin-top: 15px;
+    font-size: 0.78rem;
+    color: #64748b;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+.footer-tagline i {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin: 0 2px;
+}
+
+.footer-tagline span {
+    color: #a855f7;
+    font-weight: 600;
+}

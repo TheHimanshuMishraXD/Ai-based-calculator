@@ -4,18 +4,15 @@ from groq import Groq
 
 app = Flask(__name__)
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-if not GROQ_API_KEY:
-    print("Warning: GROQ_API_KEY IS MISSING!")
-
+# Key check
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "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")
 client = Groq(api_key=GROQ_API_KEY)
 
-# Active chat completion models from your account
+# Confirmed active general models from your list
 ACTIVE_MODELS = [
     "openai/gpt-oss-20b",
     "qwen/qwen3.8-27b",
-    "openai/gpt-oss-120b",
-    "allam-2-7b"
+    "openai/gpt-oss-120b"
 ]
 
 @app.route("/")
@@ -26,12 +23,14 @@ def home():
 def ask_ai():
     try:
         data = request.get_json()
+        if not data or "prompt" not in data:
+            return jsonify({"result": "Invalid JSON input"}), 400
+            
         user_prompt = data.get("prompt", "").strip()
 
         if not user_prompt:
             return jsonify({"result": "Empty prompt"})
 
-        # Try supported LLMs in priority order
         for model_id in ACTIVE_MODELS:
             try:
                 completion = client.chat.completions.create(
@@ -39,10 +38,7 @@ def ask_ai():
                     messages=[
                         {
                             "role": "system",
-                            "content": (
-                                "You are an AI calculator backend. Give a short, ultra-concise, "
-                                "direct response suitable for a calculator display screen."
-                            )
+                            "content": "You are a concise calculator backend. Return short numerical or formula outputs."
                         },
                         {
                             "role": "user",
@@ -52,16 +48,17 @@ def ask_ai():
                     temperature=0.2,
                     max_tokens=100
                 )
-                response_text = completion.choices[0].message.content.strip()
-                return jsonify({"result": response_text})
+                res = completion.choices[0].message.content.strip()
+                return jsonify({"result": res})
             except Exception as err:
-                print(f"[LOG] Model {model_id} failed: {err}")
+                print(f"[ERROR] {model_id}: {err}")
                 continue
 
-        return jsonify({"result": "No responsive model found"})
+        return jsonify({"result": "All active models failed"})
 
     except Exception as e:
-        return jsonify({"result": f"Groq Error: {str(e)}"})
+        print(f"[CRITICAL SERVER ERROR]: {e}")
+        return jsonify({"result": f"Server Error: {str(e)}"}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -3,12 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const aiPromptInput = document.getElementById("ai-prompt");
     const display = document.getElementById("display");
 
-    // 1. Calculator Normal Buttons Event Handling
+    // Calculator normal buttons logic
     const buttons = document.querySelectorAll(".buttons .btn");
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             const value = button.innerText;
-
             if (value === "C") {
                 display.value = "";
             } else if (value === "=") {
@@ -23,17 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. Ask AI Button Event Handling
+    // Ask AI Click Event
     if (aiBtn) {
         aiBtn.addEventListener("click", askAI);
     }
 
-    // Optional: Enter key dabane par bhi AI trigger hoga
     if (aiPromptInput) {
         aiPromptInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                askAI();
-            }
+            if (e.key === "Enter") askAI();
         });
     }
 
@@ -41,11 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const userPrompt = aiPromptInput.value.trim();
 
         if (!userPrompt) {
-            alert("Pehle input box mein question type karo!");
+            alert("Pehle prompt input box mein text type karo!");
             return;
         }
 
-        // Screen clear hone se roko, processing indicator do
         display.value = "Thinking...";
 
         try {
@@ -57,17 +52,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ prompt: userPrompt })
             });
 
-            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-            if (data.result) {
-                // Backend se mila hua output main result screen par aayega
+            const data = await response.json();
+            if (data && data.result) {
                 display.value = data.result;
             } else {
-                display.value = "Error getting response";
+                display.value = "No Result";
             }
         } catch (error) {
-            console.error("Fetch Error:", error);
-            display.value = "Server Error";
+            console.error("AI Request Failed:", error);
+            display.value = "Error: " + error.message;
         }
     }
 });

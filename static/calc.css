@@ -321,23 +321,57 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
-
-/* Footer Tagline Styling */
-.footer-tagline {
-    margin-top: 15px;
-    font-size: 0.78rem;
-    color: #64748b;
-    text-align: center;
-    letter-spacing: 0.3px;
+/* Developer Terminal Footer */
+.dev-footer {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
 }
 
-.footer-tagline i {
-    color: #ef4444;
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.status-indicator .status-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #10b981;
+    letter-spacing: 1px;
+}
+
+.dev-tag {
     font-size: 0.75rem;
-    margin: 0 2px;
+    color: #64748b;
 }
 
-.footer-tagline span {
+.dev-tag code {
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.dev-tag span {
     color: #a855f7;
     font-weight: 600;
 }

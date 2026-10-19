@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Helper: Render History List
     function renderHistory() {
+        if (!historyList) return;
+
         if (history.length === 0) {
             historyList.innerHTML = `<li class="empty-history">No calculations yet</li>`;
             return;
@@ -71,9 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Keyboard Shortcuts Listener
+    // Keyboard Shortcuts Listener (Strict Focus Isolation)
     document.addEventListener("keydown", (e) => {
-        // Skip shortcuts if user is typing in AI input box
+        // AI prompt input field mein type karte waqt shortcuts trigger nahi honge
         if (document.activeElement === aiPromptInput) return;
 
         const key = e.key;
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             calculateResult();
         } else if (key === "Backspace") {
             display.value = display.value.slice(0, -1);
-        } else if (key === "Escape" || key === "c" || key === "C") {
+        } else if (key === "Escape") {
             display.value = "";
         }
     });
@@ -101,7 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (aiPromptInput) {
         aiPromptInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") askAI();
+            if (e.key === "Enter") {
+                e.preventDefault();
+                askAI();
+            }
         });
     }
 
